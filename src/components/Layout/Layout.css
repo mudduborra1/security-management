@@ -1,0 +1,42 @@
+/* Layout Wrapper */
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  background: #f3f4f6;
+}
+
+/* Main Section */
+.layout-main {
+  flex: 1;
+  margin-left: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page Content */
+.layout-content {
+  padding: 30px;
+  min-height: calc(100vh - 80px);
+  background: #f9fafb;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .layout-main {
+    margin-left: 220px;
+  }
+
+  .layout-content {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .layout-main {
+    margin-left: 70px;
+  }
+
+  .layout-content {
+    padding: 15px;
+  }
+}
