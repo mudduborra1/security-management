@@ -1,5 +1,5 @@
 
-import Layout from '../components/layout/Layout'
+import Layout from '../components/Layout/Layout'
 import StatCard from '../components/cards/StatCard'
 import GuardTable from '../components/tables/GuardTable'
 
