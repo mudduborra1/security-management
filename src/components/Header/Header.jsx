@@ -1,7 +1,26 @@
+import { useLocation } from "react-router-dom";
 import "./Header.css";
 
-const Header = ({ title = "Dashboard", user = "Admin" }) => {
+const Header = ({ user = "Admin" }) => {
+
+  // Route title mapping
+  const pageTitles = {
+    "/dashboard": "Dashboard",
+    "/guards": "Guards",
+    "/attendance": "Attendance",
+    "/shifts": "Shifts",
+    "/incidents": "Incidents",
+    "/sites": "Sites",
+  };
+
+  const location = useLocation();
+
+  const title = pageTitles[location.pathname] || "Dashboard";
+
   return (
+
+    
+
     <header className="header">
       <div className="header-left">
         <h1>{title}</h1>
