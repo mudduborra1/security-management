@@ -1,172 +1,126 @@
-/* ===== SIDEBAR ===== */
-
-.sidebar {
-  width: 260px;
-  height: 100vh;
-
+/* ================= SIDENAV ROOT ================= */
+.sidenav {
   position: fixed;
   top: 0;
   left: 0;
 
-  background: linear-gradient(180deg, #0f172a, #1e293b);
+  height: 100vh;
 
+  background: #0f172a;
   color: white;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
-  padding: 20px 0;
+  transition: width 0.3s ease;
 
-  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
-
-  z-index: 1000;
-
-  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
-/* ===== LOGO ===== */
-
-.sidebar-logo {
-  text-align: center;
-  margin-bottom: 10px;
+/* OPEN / COLLAPSED */
+.sidenav.open {
+  width: 260px;
 }
 
-.sidebar-logo h2 {
-  font-size: 28px;
-  font-weight: 700;
-
-  color: #38bdf8;
-
-  letter-spacing: 2px;
+.sidenav.collapsed {
+  width: 70px;
 }
 
-/* ===== NAVIGATION ===== */
-
-.sidebar-nav {
-  flex: 1;
-  margin-top: 20px;
-}
-
-.sidebar-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar-nav li {
-  padding: 0 15px;
-  margin-bottom: 10px;
-}
-
-/* ===== MENU LINK ===== */
-
-.menu-lnk {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-
-  text-decoration: none;
-
-  padding: 14px 16px;
-
-  border-radius: 14px;
-
-  color: #cbd5e1;
-
-  font-size: 15px;
-  font-weight: 500;
-
-  transition: all 0.3s ease;
-}
-
-/* ===== ICON ===== */
-
-.menu-lnk svg {
-  font-size: 20px;
-}
-
-/* ===== HOVER ===== */
-
-.menu-lnk:hover {
-  background: rgba(255, 255, 255, 0.08);
-
-  color: #38bdf8;
-
-  transform: translateX(4px);
-}
-
-/* ===== ACTIVE ===== */
-
-.sidebar-nav li.active .menu-lnk {
-  background: #2563eb;
-
+/* ================= TOGGLE ================= */
+.toggle-btn {
+  background: transparent;
+  border: none;
   color: white;
 
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-}
-
-/* ===== FOOTER ===== */
-
-.sidebar-footer {
-  padding: 0 20px;
-}
-
-/* ===== LOGOUT ===== */
-
-.logout-btn {
-  width: 100%;
+  font-size: 22px;
 
   padding: 12px;
 
-  border: none;
-  border-radius: 12px;
+  cursor: pointer;
+}
 
-  background: #ef4444;
+/* ================= LOGO ================= */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 15px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+
+  border-radius: 20px;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ================= MENU ================= */
+.menu {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 10px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 15px;
 
   color: white;
+  text-decoration: none;
 
-  font-size: 15px;
-  font-weight: 600;
+  transition: 0.2s;
+}
+
+.menu-item:hover {
+  background: #1e293b;
+  border-radius: 8px;
+}
+
+/* ACTIVE LINK */
+.menu-item.active {
+  background: #334155;
+  border-radius: 8px;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  margin-top: auto;
+  padding: 15px;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 10px;
+
+  background: #ef4444;
+  color: white;
+
+  border: none;
+  border-radius: 8px;
 
   cursor: pointer;
-
-  transition: all 0.3s ease;
 }
 
-.logout-btn:hover {
-  background: #dc2626;
-
-  transform: translateY(-2px);
+/* ================= COLLAPSED MODE ================= */
+.sidenav.collapsed .menu-item {
+  justify-content: center;
 }
 
-/* ===== RESPONSIVE ===== */
-
-@media screen and (max-width: 768px) {
-  .sidebar {
-    width: 80px;
-  }
-
-  .sidebar-logo h2 {
-    font-size: 18px;
-  }
-
-  .menu-lnk span {
-    display: none;
-  }
-
-  .menu-lnk {
-    justify-content: center;
-    padding: 15px;
-  }
-
-  .logout-btn {
-    font-size: 12px;
-  }
+.sidenav.collapsed .logo-text {
+  display: none;
 }
 
-@media screen and (max-width: 500px) {
-  .sidebar {
-    width: 70px;
-  }
+.sidenav.collapsed .logout-btn {
+  font-size: 12px;
 }

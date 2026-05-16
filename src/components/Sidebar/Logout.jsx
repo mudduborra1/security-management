@@ -1,12 +1,44 @@
-import { useNavigate } from "react-router-dom";
+    // Protect login page place at login page 
+  useEffect(() => {
+  
+    const auth = localStorage.getItem("auth");
+  
+    // Already logged in
+    if (auth) {
+      navigate("/dashboard", { replace: true });
+    }
+  
+  }, [navigate]);
 
-export default function Logout() {
+
+  // Protect Dashboard page palce at dashboard
+  useEffect(() => {
+
+    const auth = localStorage.getItem("auth");
+
+    // If not logged in
+    if (!auth) {
+      navigate("/", { replace: true });
+      return;
+    }
+
+  }, [navigate]);
+
+ 
+// Redirect to login page place in sidebar
+const location = useLocation();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("auth"); // 🔓 clear session
-    navigate("/", { replace: true }); // redirect to login
+
+    // Remove auth
+    localStorage.removeItem("auth");
+
+    // Redirect login page
+    navigate("/", { replace: true });
+
   };
 
-  return <button onClick={handleLogout}>Logout</button>;
-}
+//   git add .
+// git commit -m "updated code"
+// git push

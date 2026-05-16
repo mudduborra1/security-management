@@ -2,27 +2,33 @@
 import Layout from '../components/Layout/Layout'
 import StatCard from '../components/cards/StatCard'
 import GuardTable from '../components/tables/GuardTable'
-
-
-
 import '../styles/dashboard.css'
 
 import { useNavigate } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-function Dashboard() {
+export default function Dashboard() {
+
+  const navigate = useNavigate();
+
+  const [historyCount, setHistoryCount] = useState(0);
+
+  // Protect dashboard
+  useEffect(() => {
+
+    const auth = localStorage.getItem("auth");
+
+    // If not logged in
+    if (!auth) {
+      navigate("/", { replace: true });
+      return;
+    }
+
+  }, [navigate]);
+
+ 
+ 
   
-  
- const navigate = useNavigate();
-
-  const handleBack = () => {
-    localStorage.removeItem("auth"); // logout
-    navigate("/"); // go to login
-  };
-
-  
-
 return (
     <Layout>
       <div className='dashboard'>
@@ -42,5 +48,5 @@ return (
   )
 }
 
-export default Dashboard
+
 
